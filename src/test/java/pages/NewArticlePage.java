@@ -1,4 +1,5 @@
 package pages;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,8 +25,8 @@ public class NewArticlePage {
 	    WebElement pub_article_btn;
 	    
 
-	    @FindBy(xpath="//h1[contains(text(),'Unit Test')]")
-	    WebElement check;
+//	    @FindBy(xpath="//h1[contains(text(),'Unit Test')]")
+//	    WebElement check;
 	    
 	    @FindBy(xpath="//span[contains(text(),'Title already exists.. ')]")
 	    WebElement duplicate;
@@ -49,7 +50,11 @@ public class NewArticlePage {
 		   enterTags.sendKeys(tags);
 		   pub_article_btn.click();
 	   }  
-	   public String newArticleValidate() {
+	   public WebElement getNewArticleElement(WebDriver driver,String articleTitle) {
+		   WebElement ele=driver.findElement(By.xpath("//h1[contains(text(),'"+articleTitle+"')]"));
+	       return ele;
+	   }
+	   public String newArticleValidate(WebElement check) {
 		  return  check.getText();
 	   }
 //	   public void duplicateArticle(String title,String about,String text,String tags) {

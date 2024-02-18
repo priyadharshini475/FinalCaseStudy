@@ -32,9 +32,9 @@ public class UpdateArticlePage {
 //	     @FindBy(xpath="//h1[contains(text(),'Unit Test1..')]")
 //	       WebElement headerCheckBtn;
 	     
-	     @FindBy(xpath="//h1[contains(text(),'Unit Test1..')]")
-	     WebElement check;
-	     
+//	     @FindBy(xpath="//h1[contains(text(),'Unit Test1..')]")
+//	     WebElement check;
+//	     
 	     @FindBy(xpath="(//a[@href='#/'])[2]")
 	     WebElement home;
 	     
@@ -42,9 +42,14 @@ public class UpdateArticlePage {
 	     WebElement globalFeed;
 	     
 
-	     
+	     // For find the webelement for already existing article title to update...
 	     public WebElement articleTitleElement(WebDriver driver,String articleTitle) {
 	    	 WebElement ele=driver.findElement(By.xpath("//h1[contains(text(),'"+articleTitle+"')]"));
+	    	 return ele;
+	     }
+	     // For find the webelement for the updated Title
+	     public WebElement getUpdateArticleElement(WebDriver driver,String updatedarticleTitle) {
+	    	 WebElement ele=driver.findElement(By.xpath("//h1[contains(text(),'"+updatedarticleTitle+"')]"));
 	    	 return ele;
 	     }
 	     
@@ -71,7 +76,7 @@ public class UpdateArticlePage {
 		    	 enterTags.sendKeys(tags);
 		    	 update_btn.click();
 	 }
-		public String updateArticleValidate() {
+		public String updateArticleValidate(WebElement check) {
 			return check.getText();
 		}
 }

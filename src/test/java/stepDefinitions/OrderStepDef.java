@@ -85,8 +85,8 @@ public class OrderStepDef {
 	@Then("Should display the duplicate article message")
 	public void should_display_the_duplicate_article_message(DataTable dataTable) {
 		List<String> msgs=dataTable.asList();
-		String expmsg=msgs.get(0);
-	    Assert.assertEquals(newArticlePage.duplicateArticleValidate(),expmsg);
+		String dupexpmsg=msgs.get(0);
+	    Assert.assertEquals(newArticlePage.duplicateArticleValidate(),dupexpmsg);
 	}
 	
 	
@@ -103,8 +103,9 @@ public class OrderStepDef {
 	@Then("Should display the new Article Title")
 	public void should_display_the_new_article_title(DataTable dataTable) {
 		List<String> msgs=dataTable.asList();
-		String expmsg=msgs.get(0);
-	    Assert.assertEquals(newArticlePage.newArticleValidate(),expmsg);
+		String newArticleTitle=msgs.get(0);
+		WebElement ele=newArticlePage.getNewArticleElement(driver,newArticleTitle);
+	    Assert.assertEquals(newArticlePage.newArticleValidate(ele),newArticleTitle);
 	}
 	
 	
@@ -130,8 +131,9 @@ public class OrderStepDef {
 	@Then("Should display the updated Article Title")
 	public void should_display_the_updated_article_title(DataTable dataTable) {
 		List<String> msgs=dataTable.asList();
-		String expmsg=msgs.get(0);
-		Assert.assertEquals(updateArticlePage.updateArticleValidate(),expmsg);
+		String updArticleTitle=msgs.get(0);
+		WebElement ele=updateArticlePage.getUpdateArticleElement(driver,updArticleTitle);
+		Assert.assertEquals(updateArticlePage.updateArticleValidate(ele),updArticleTitle);
 	    
 	}
 	@Given("User is on deleteArticlePage")
@@ -141,18 +143,17 @@ public class OrderStepDef {
 	}
 	@When("User delete the Article")
 	public void user_delete_the_article(DataTable dataTable) {
-		List<String> msgs=dataTable.asList();
-		String delTitle=msgs.get(0);
-		//deleteArticlePage.setDeleteTitle(delTitle);
-	    WebElement ele=deleteArticlePage.delArticleLocate(driver, delTitle);
+		List<Map<String,String>> article=dataTable.asMaps();
+		String delTitle=article.get(0).get("articleName");
+		WebElement ele=deleteArticlePage.delArticleLocate(driver, delTitle);
 	    deleteArticlePage.deleteArticle(ele);
 		
 	}
 	@Then("should the article to be deleted")
 	public void should_the_article_to_be_deleted(DataTable dataTable) {
 		List<String> msgs=dataTable.asList();
-		String expmsg=msgs.get(0);
-		Assert.assertEquals(deleteArticlePage.deleteValidate(),expmsg);
+		String del_msg=msgs.get(0);
+		Assert.assertEquals(deleteArticlePage.deleteValidate(),del_msg);
 	}
 	
 	

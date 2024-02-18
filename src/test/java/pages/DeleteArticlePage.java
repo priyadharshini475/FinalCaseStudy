@@ -25,6 +25,7 @@ public class DeleteArticlePage {
      @FindBy(xpath="(//button)[2]")
      WebElement globalFeed;
      
+   
      
 	
 	 public DeleteArticlePage(WebDriver driver) {
@@ -36,11 +37,14 @@ public class DeleteArticlePage {
 		 home.click();
 		 globalFeed.click();
 	 }
-	 
+	 // For locate the WebElement we want to delete the article
 	 public WebElement delArticleLocate(WebDriver driver,String articleTitle) {
-		// WebElement ele=driver.findElement(By.xpath("//h1[contains(text(),'"+articleTitle+"')]"));
-		 WebElement ele=driver.findElement(By.xpath("//h1"));
-		 return ele;
+		WebElement articleToDelete=driver.findElement(By.xpath("//h1[contains(text(),'"+articleTitle+"')]"));
+		// WebElement ele=driver.findElement(By.xpath("//h1"));
+//		 String xpathExpression = "//h1[contains(text(),'"+articleTitle+"')]";
+//		 WebElement articleToDelete=driver.findElement(By.xpath(xpathExpression));
+		 return articleToDelete;
+		 
 		 
 	 }
 	 public void deleteArticle(WebElement ele)
