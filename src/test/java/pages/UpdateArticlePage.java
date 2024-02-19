@@ -20,7 +20,7 @@ public class UpdateArticlePage {
 	    @FindBy(xpath="//input[@class='form-control ' and @name='description']")
 	    WebElement articleAbout;
 	    
-	    @FindBy(xpath="//textArea[@rows='8']")
+	    @FindBy(xpath="//textArea[@placeholder='Write your article (in markdown)']")
 	    WebElement textArea;
 	    
 	     @FindBy(xpath="//input[@placeholder='Enter tags']")
@@ -35,11 +35,14 @@ public class UpdateArticlePage {
 //	    @FindBy(xpath="//h1[contains(text(),'Unit Test1..')]")
 //	     WebElement check;
 	     
-	     @FindBy(xpath="(//a[@href='#/'])[2]")
-	     WebElement home;
-	     
-         @FindBy(xpath="(//button)[2]")
-	     WebElement globalFeed;
+//	     @FindBy(xpath="(//a[@href='#/'])[2]")
+//	     WebElement home;
+//	     
+//         @FindBy(xpath="(//button)[2]")
+//	     WebElement globalFeed;
+         
+         @FindBy(xpath = "(//a[@class='author'])[1]")
+     	  WebElement profile;
 	     
 
 	     // For find the webElement for already existing article title to update...
@@ -57,10 +60,13 @@ public class UpdateArticlePage {
 	    	 PageFactory.initElements(driver,this);
 	     }
 	     
-	     public void homePage() {
-	    	 home.click();
-	    	 globalFeed.click();
-	    	 
+//	     public void homePage() {
+//	    	 home.click();
+//	    	 globalFeed.click();
+//	    	 
+//	     }
+	     public void profile() {
+	    	 profile.click();
 	     }
 	    
 		public void update(WebElement ele,String title,String about,String text,String tags) {

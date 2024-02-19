@@ -113,7 +113,7 @@ public class OrderStepDef {
 	
 	@Given("User is on updateArticlePage")
 	public void user_is_on_update_article_page() {
-		updateArticlePage.homePage();
+		updateArticlePage.profile();
 	   
 	}
 	@When("User Update the Article")
@@ -139,7 +139,7 @@ public class OrderStepDef {
 	}
 	@Given("User is on deleteArticlePage")
 	public void user_is_on_delete_article_page() {
-		deleteArticlePage.home();
+		deleteArticlePage.profile();
 	   
 	}
 	@When("User delete the Article")

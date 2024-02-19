@@ -25,6 +25,8 @@ public class DeleteArticlePage {
     @FindBy(xpath="(//button)[2]")
      WebElement globalFeed;
      
+    @FindBy(xpath = "(//a[@class=\"author\"])[1]")
+	WebElement profile;
    
      public DeleteArticlePage(WebDriver driver) {
 		 this.driver=driver;
@@ -34,6 +36,10 @@ public class DeleteArticlePage {
 	 public void home() {
 		 home.click();
 		 globalFeed.click();
+	 }
+	 
+	 public void profile() {
+		 profile.click();
 	 }
 	 // For locate the WebElement we want to delete the article
 	 public WebElement delArticleLocate(WebDriver driver,String articleTitle) {
