@@ -63,8 +63,9 @@ public class OrderStepDef {
 	@Then("Should display the success login message")
 	public void should_display_the_success_login_message(DataTable dataTable) {
 		List<String> msgs=dataTable.asList();
-		String expmsg=msgs.get(0);
-	    Assert.assertEquals(loginArticlePage.checkValidLogin(),expmsg);
+		String userName=msgs.get(0);
+		WebElement ele=loginArticlePage.validUserName(driver,userName);
+	    Assert.assertEquals(loginArticlePage.checkValidLogin(ele),userName);
 	}
 	
 	@Given("User is on newArticleCreationPage")

@@ -1,6 +1,7 @@
 package pages;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,8 +18,8 @@ public class LoginArticlePage {
     WebElement password;
     @FindBy(xpath="//button[contains(text(),'Login')]")
     WebElement loginbtn;
-    @FindBy(xpath="//div[contains(text(),'Priyadharshini')]")
-    WebElement validcheck;
+//    @FindBy(xpath="//div[contains(text(),'Priyadharshini')]")
+//    WebElement validcheck;
     @FindBy(xpath="//li[contains(text(),'Wrong email/password combination')]")
     WebElement invalidcheck;
     
@@ -27,6 +28,10 @@ public class LoginArticlePage {
 	}
     public void login() {
   	  login_btn.click();
+    }
+    public WebElement validUserName(WebDriver driver,String userName) {
+    	WebElement ele=driver.findElement(By.xpath("//div[contains(text(),'"+userName+"')]"));
+    	return ele;
     }
     public void inValidLoginTest(String strmail,String strpassword) {
   	  email.sendKeys(strmail);
@@ -40,7 +45,7 @@ public class LoginArticlePage {
     	   password.sendKeys(strpassword);
     	   loginbtn.click();
     	}
-   public String checkValidLogin() {
+   public String checkValidLogin(WebElement validcheck) {
     	 return validcheck.getText();
     }
  
