@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 public class NewArticlePage {
-	 @FindBy(xpath="//a[@href='#/editor']")
+	   @FindBy(xpath="//a[@href='#/editor']")
 	   WebElement newArticle_btn;
 	   
 	   @FindBy(xpath="//input[@placeholder='Article Title']")
@@ -18,10 +18,10 @@ public class NewArticlePage {
 	   @FindBy(xpath="//textArea[@rows='8']")
 	   WebElement textArea;
 	   
-	    @FindBy(xpath="//input[@placeholder='Enter tags']")
+	   @FindBy(xpath="//input[@placeholder='Enter tags']")
 	   WebElement enterTags;
 	    
-	    @FindBy(xpath="//button[@type='submit']")
+	   @FindBy(xpath="//button[@type='submit']")
 	    WebElement pub_article_btn;
 	    
 
@@ -57,14 +57,7 @@ public class NewArticlePage {
 	   public String newArticleValidate(WebElement check) {
 		  return  check.getText();
 	   }
-//	   public void duplicateArticle(String title,String about,String text,String tags) {
-//		   newArticle_btn.click();
-//		   articleTitle.sendKeys(title); 
-//		   articleAbout.sendKeys(about);
-//		   textArea.sendKeys(text);
-//		   enterTags.sendKeys(tags);
-//		   pub_article_btn.click();
-//	   }
+
 	   public String duplicateArticleValidate() {
 		   return duplicate.getText();
 	   }

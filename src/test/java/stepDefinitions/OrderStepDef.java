@@ -157,8 +157,8 @@ public class OrderStepDef {
 		Assert.assertEquals(deleteArticlePage.deleteValidate(),del_msg);
 	}
 	
-	
+}	
 	
 	
 
-}
+

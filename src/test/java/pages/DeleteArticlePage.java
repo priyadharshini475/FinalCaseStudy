@@ -19,16 +19,14 @@ public class DeleteArticlePage {
 	@FindBy(xpath="//div[contains(text(),'Articles not available.')]")
 	WebElement check;
 	
-	 @FindBy(xpath="(//a[@href='#/'])[2]")
+	@FindBy(xpath="(//a[@href='#/'])[2]")
      WebElement home;
      
-     @FindBy(xpath="(//button)[2]")
+    @FindBy(xpath="(//button)[2]")
      WebElement globalFeed;
      
    
-     
-	
-	 public DeleteArticlePage(WebDriver driver) {
+     public DeleteArticlePage(WebDriver driver) {
 		 this.driver=driver;
 	 		PageFactory.initElements(driver,this);
 	 	}
@@ -40,12 +38,7 @@ public class DeleteArticlePage {
 	 // For locate the WebElement we want to delete the article
 	 public WebElement delArticleLocate(WebDriver driver,String articleTitle) {
 		WebElement articleToDelete=driver.findElement(By.xpath("//h1[contains(text(),'"+articleTitle+"')]"));
-		// WebElement ele=driver.findElement(By.xpath("//h1"));
-//		 String xpathExpression = "//h1[contains(text(),'"+articleTitle+"')]";
-//		 WebElement articleToDelete=driver.findElement(By.xpath(xpathExpression));
-		 return articleToDelete;
-		 
-		 
+	    return articleToDelete;
 	 }
 	 public void deleteArticle(WebElement ele)
 		{
